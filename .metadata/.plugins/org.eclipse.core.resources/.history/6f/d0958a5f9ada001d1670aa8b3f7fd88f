@@ -1,0 +1,6 @@
+package Fluent_Interface;
+
+public interface Control_Interface {
+	
+	Control type_ele();
+}

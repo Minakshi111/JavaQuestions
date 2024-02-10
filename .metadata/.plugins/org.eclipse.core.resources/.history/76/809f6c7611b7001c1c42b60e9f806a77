@@ -1,0 +1,34 @@
+package AppQuestions;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class SumOf2Num {
+	
+	
+	public static int[] findNums(int[] num, int target)
+	{
+		HashMap<Integer, Integer> hmap= new HashMap<Integer, Integer>();
+		
+		for ( int i=0; i<num.length; i++)
+		{
+			hmap.put(num[i], i);		
+		}
+		
+		for ( int i=0; i<num.length;i++)
+		{
+			
+			
+		}
+		
+	
+	}
+	
+	public static void main(String[] args) {
+		
+		
+			
+	}
+
+}

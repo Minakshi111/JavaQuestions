@@ -1,0 +1,32 @@
+package Leena;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Staging1 {
+	
+	public static void main(String [] str) throws InterruptedException
+	
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\JavaT\\Software\\chromedriver_win32_New\\chromedriver.exe");		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.manage().timeouts().implicitlyWait(4000, TimeUnit.SECONDS);
+		
+		
+		driver.get("https://staging-unified.leena.ai/login");	
+		
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("shubham@chatteron.io");
+		
+		
+		
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,83 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-08-16T16:25:56.701Z",
+        "line": 3,
+        "name": "Login Unified",
+        "description": "",
+        "id": "login-unified;login-unified",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2805988200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User is already on Login Page",
+            "match": {
+              "location": "StepDefinition.LoginStepDefinition.user_is_already_on_login_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3990400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "title is Unified dashboard",
+            "match": {
+              "location": "StepDefinition.LoginStepDefinition.title_is_unified_dashboard()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 386461300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User enters username and password",
+            "match": {
+              "location": "StepDefinition.LoginStepDefinition.user_enters_username_and_password()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 106771800,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User clicks on Submit button",
+            "match": {
+              "location": "StepDefinition.LoginStepDefinition.user_clicks_on_Submit_button()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User is on HomePage",
+            "match": {
+              "location": "StepDefinition.LoginStepDefinition.user_is_on_HomePage()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Login Unified",
+    "description": "",
+    "id": "login-unified",
+    "keyword": "Feature",
+    "uri": "file:src/main/java/Fearure/login.feature",
+    "tags": []
+  }
+]

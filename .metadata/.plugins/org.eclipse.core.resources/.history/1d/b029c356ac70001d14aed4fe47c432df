@@ -1,0 +1,11 @@
+package Recursion;
+
+public class ifArraySorted {
+	public static void main(String[] str)
+	{
+		int arr[]= {2,4,6,7};
+		
+		
+	}
+
+}

@@ -1,0 +1,43 @@
+package Two_D_Array;
+
+import java.util.Scanner;
+
+public class Nearest_exit_from_entrance {
+	public static void main(String[] str)
+	{
+		
+	
+	
+	Scanner sc= new Scanner(System.in);
+	int n=3;
+	
+	char[][] arr= new char[n][n];
+	
+	for ( int i=0; i<n;i++)
+	{
+		
+			String st= sc.nextLine();
+			String[] ch= st.split(" ");
+			
+			for ( int k=0; k<ch.length;k++)
+			{
+				String s= ch[k];			
+				arr[i][k]= s.charAt(0);
+			}
+			
+	}
+	
+	
+	int max= func(arr, 0, 0, 0,0);
+	
+	}
+
+	private static int func(char[][] arr, int i, int j, int count, int max) {
+		
+		
+		
+	
+		return max;
+	}
+
+}

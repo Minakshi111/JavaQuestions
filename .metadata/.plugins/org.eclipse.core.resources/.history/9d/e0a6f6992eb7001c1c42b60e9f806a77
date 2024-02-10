@@ -1,0 +1,31 @@
+package AppQuestions;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+
+public class GetMaxOfHashMap {
+
+	public static void main(String[] args) {
+		
+		HashMap<Integer, Integer> hmap= new HashMap<Integer, Integer>();
+		hmap.put(1, 50);
+		hmap.put(2, 40);
+		hmap.put(3, 70);
+		
+		
+		int max= Collections.max(hmap.values());
+		System.out.println(max);
+		
+		// find the key respective to maximum value
+		
+		for (Entry<Integer, Integer> entry : hmap.entrySet())
+		{
+			if(entry.getValue()==max)
+			{
+				System.out.println(entry.getKey());
+			}			
+		}				
+	}
+}

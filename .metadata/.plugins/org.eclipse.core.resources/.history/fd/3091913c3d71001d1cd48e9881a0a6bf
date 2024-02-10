@@ -1,0 +1,18 @@
+package Recursion;
+
+public class binarySearch {
+	public static void main(String[] str)
+	{
+		int arr[]= {2,4,6,8,9};
+		
+		int index= binarySearch(arr, 0, arr.length-1 );
+		
+	}
+
+	private static int binarySearch(Class<arr[]> class1, int i, int j) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+
+}

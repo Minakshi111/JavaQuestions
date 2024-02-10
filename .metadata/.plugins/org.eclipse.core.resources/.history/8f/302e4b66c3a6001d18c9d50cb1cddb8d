@@ -1,0 +1,62 @@
+package src.main.Base;
+
+import org.testng.*;
+import src.main.Pages.Common;
+
+public class Listeners extends Base implements ITestListener, IRetryAnalyzer, ISuiteListener {
+    Common common;
+    private static String screenShotFileName;
+
+    @Override
+    public void onTestStart(ITestResult result) {
+        String methodName= result.getMethod().getMethodName();
+        String description= result.getMethod().getDescription();
+        log.info("======= Started: "+methodName + "============");
+        common= new Common(driver);
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult result) {
+
+        String methodName= result.getMethod().getMethodName();
+        log.info("=========== Success: "+methodName+" ===================");
+    }
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        String methodName= result.getMethod().getMethodName();
+    log.info("=========== Failed: "+ methodName+" ====================");
+    log.info("Taking Screenshot");
+    screenShotFileName= methodName+".jpeg";
+    common.takeScreenshot(logFolderPath, screenShotFileName);
+    log.info("Screenshot File Path is: "+logFolderPath+"/"+screenShotFileName);
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        log.info("============ Skipped: "+result.getMethod().getMethodName()+" =============");
+
+    }
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+    }
+    @Override
+    public void onTestFailedWithTimeout(ITestResult result) {
+    }
+    @Override
+    public void onStart(ITestContext context) {
+    }
+    @Override
+    public void onFinish(ITestContext context) {
+    }
+    @Override
+    public void onStart(ISuite suite) {
+    }
+    @Override
+    public void onFinish(ISuite suite) {
+    }
+    @Override
+    public boolean retry(ITestResult iTestResult) {
+        return false;
+    }
+}

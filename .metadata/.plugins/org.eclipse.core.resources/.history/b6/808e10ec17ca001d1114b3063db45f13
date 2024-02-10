@@ -1,0 +1,23 @@
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class Demo_calculator_001 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+	}
+	
+	public static void openCalculator()
+	{
+		
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability("deviceName", "S21");
+		cap.setCapability("udid", "RZCW10GV4RW");
+		cap.setCapability("plateformName", "Android");
+		cap.setCapability("platformVersion", "13");
+		
+	}
+
+}

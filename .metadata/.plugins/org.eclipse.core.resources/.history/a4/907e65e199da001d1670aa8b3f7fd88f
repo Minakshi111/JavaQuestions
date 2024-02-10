@@ -1,0 +1,41 @@
+package Fluent_Interface;
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import Fluent_Interface.Base;
+
+public class Pages extends Base {
+	
+	   @FindBy(id="input")
+	   public WebElement searchbox;
+	   
+	
+	
+	  public Pages(WebDriver driver) {
+	        Base.driver = driver;     
+	        PageFactory.initElements(driver, this);
+	    }
+	  
+	  public Pages open_url()
+		{
+		  driver.get("https://www.google.com/");
+		return this;		
+		}
+	  
+	  public Pages type_ele()
+		{
+		  searchbox.sendKeys("Hello Minakshi");
+			return this;		
+		}
+		
+		public Pages click_ele()
+		{
+			searchbox.click();
+			return this;		
+		}
+}

@@ -1,0 +1,21 @@
+package Fluent_Interface;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+
+public class Scripts extends Base {
+
+	Pages bt;
+	
+	  @BeforeMethod
+	   public void setup(){
+	         bt= new Pages(driver);	        
+	    }
+	  
+	  @Test
+	  public void test_001()
+	  {		  
+		  bt.open_url().type_ele().click_ele();		  
+	  }
+}

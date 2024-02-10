@@ -1,0 +1,22 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Test_001 {
+	
+	public static void main(String[] str)
+	{
+		
+		 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//chromedriver");
+	       ChromeOptions options = new ChromeOptions();
+	        options.addArguments("--disable-notifications");
+	        ChromeOptions opt= new ChromeOptions();
+	        driver=new ChromeDriver(options);
+	        driver.manage().window().maximize();
+	        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	         wait=new WebDriverWait(driver, 30);
+	}
+
+}

@@ -1,0 +1,13 @@
+package javaPackage;
+
+public class Variable3 {
+
+	
+	int data = 50;
+	
+	public static void main(String[] args) {
+		
+		
+		
+	}
+}

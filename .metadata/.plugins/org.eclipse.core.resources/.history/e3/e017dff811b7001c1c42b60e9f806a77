@@ -1,0 +1,43 @@
+package AppQuestions;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class SumOf2Num {
+	
+	
+	public static int[] findNums(int[] num, int target)
+	{
+		HashMap<Integer, Integer> hmap= new HashMap<Integer, Integer>();
+		
+		for ( int i=0; i<num.length; i++)
+		{
+			hmap.put(num[i], i);		
+		}
+		
+		for ( int i=0; i<num.length;i++)
+		{
+			int diff= target-num[i];
+			
+			if(hmap.containsKey(diff))
+			{
+				return new int[] {i, hmap.get(diff)};				
+			}
+			
+		}
+		
+		return new int[] {-1};	
+	}
+	
+	public static void main(String[] args) {	
+		
+		int[] a= {1,4,6,8};
+		int target= 9;
+		
+		int res[]= findNums(a, target);
+		System.out.println("Values are :"+res[0]);
+		System.out.println("Values are :"+res[1]);
+	}
+
+}

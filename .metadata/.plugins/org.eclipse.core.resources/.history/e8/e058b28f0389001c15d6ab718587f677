@@ -1,0 +1,35 @@
+package javaPackage;
+
+public class RelationalOperator {
+	public static void main(String[] args) {
+		int a= 300;
+		int b=300;
+		// Check if these 2 are equal or not
+		
+		if(a!=b)
+		{
+			System.out.println("a is not equal to b");
+		}
+		else
+		{
+			System.out.println("a and b are equal");
+		}
+		
+		String p= "Hello SElenium";
+		String q= "Hello Selenium";
+		
+		// String comparision - 1st way is not correct
+		
+		if(p==q)  // this is case sensitive this we use == for number comparision
+			System.out.println("p and q are equal for 1st way");
+		else
+			System.out.println("p and q are not equal for 1st way");
+		
+		// String comparision - 2nd way is not correct
+				if(p.equals(q))  
+					System.out.println("p and q are equal for 1st way");
+				else
+					System.out.println("p and q are not equal for 1st way");				
+	}
+
+}

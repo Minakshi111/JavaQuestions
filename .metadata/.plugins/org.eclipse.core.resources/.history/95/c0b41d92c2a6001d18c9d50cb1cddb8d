@@ -1,0 +1,29 @@
+package src.main.Scripts;
+
+import org.junit.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import src.main.Base.Base;
+import src.main.Pages.facebookMainPage;
+import src.main.Pages.Common;
+
+public class facebookPost extends Base {
+    facebookMainPage fb;
+    Common common;
+
+    @BeforeMethod
+   public void setup(){
+         fb= new facebookMainPage(driver);
+         common= new Common(driver);
+    }
+
+    @Test(description = "Post text on Facebook profile")
+    public void postCommentOnFB() throws InterruptedException {
+           fb.openFacebook();
+            fb.login();
+           Assert.assertTrue(driver.getTitle().contains("Facebook"));
+           fb.postMessage();
+           Thread.sleep(5000);
+            Assert.assertTrue(fb.isCommentPosted());
+    }
+}

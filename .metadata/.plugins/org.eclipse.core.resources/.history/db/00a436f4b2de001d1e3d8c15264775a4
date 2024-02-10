@@ -1,0 +1,19 @@
+package Inheritance;
+
+public class B extends A{
+	
+	int x=20;
+	public void m1()
+	{
+		System.out.println("B Class");
+	}
+	
+	public static void main(String[] str)
+	{
+		A a= new B();
+		a.m1();
+		System.out.print(a.x);
+		
+	}
+
+}

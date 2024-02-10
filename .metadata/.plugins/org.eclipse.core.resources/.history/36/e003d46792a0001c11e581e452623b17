@@ -1,0 +1,29 @@
+package SeleniumPractise;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ReadExcel   {
+	public static void main(String[] args) throws Exception {
+		
+	
+	// specify the location of excel file
+	
+	File src= new File("C:\\Users\\91991\\Desktop\\Demo.xlsx");
+	
+	// Load File
+	FileInputStream fs= new FileInputStream(src);
+	
+	// Load workbook
+	XSSFWorkbook wb= new XSSFWorkbook(fs);
+	
+	XSSFSheet sh= wb.getSheet("Sheet1");
+	
+	
+	}
+}
+
+

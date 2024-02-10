@@ -1,0 +1,19 @@
+package Recursion;
+
+public class factorial {
+	public static void main(String [] str)
+	{
+		int n=4;
+		
+		int res= factorial(n, 1);
+	}
+
+	private static factorial(int n, int result) {
+		
+		
+		
+		
+		return result;
+	}
+
+}

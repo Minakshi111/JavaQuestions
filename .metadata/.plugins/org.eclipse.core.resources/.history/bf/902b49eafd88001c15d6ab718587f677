@@ -1,0 +1,11 @@
+package javaPackage;
+
+public class AssignmentOperstor {
+	public static void main(String[] args) {
+		
+		int a=10; 
+		a+=3;
+		
+	}
+
+}

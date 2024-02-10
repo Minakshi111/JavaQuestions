@@ -1,0 +1,30 @@
+package Recursion;
+
+public class reverse_num {
+	static int sum= 0;
+	static String digit[]= {"Zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+	
+	public static void main( String [] str)
+	{
+		
+		int num= 1234;
+		
+		int rev= convert(num,0);
+		System.out.println(rev);
+		
+		
+	}
+
+	private static int convert(int x, int sum) 
+	{
+
+		if(x==0)
+			return x;
+		int mod= (x%10);
+         sum= sum*10+mod;
+        sum=  convert(x/10,sum);
+		
+		return sum;
+	}
+
+}

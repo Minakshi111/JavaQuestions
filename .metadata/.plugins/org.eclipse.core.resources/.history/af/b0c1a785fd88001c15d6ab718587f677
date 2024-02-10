@@ -1,0 +1,20 @@
+package javaPackage;
+
+public class BitwiseLogical {
+
+	public static void main(String[] args) {
+		int a=10;
+		int b= 5;
+		int c= 20;
+		
+		// Logical Operators
+		
+	System.out.println(a < b && a<c);		  // if first is false, it ll not check second  // False
+	System.out.println(a<b && a++< c);
+	System.out.println(a);  // This is to check that Logical Operator will not check second condition but Bitwise will check 
+	
+	// Bitwise
+	System.out.println(a<b & a++<c);  // false True = False
+		
+	}
+}

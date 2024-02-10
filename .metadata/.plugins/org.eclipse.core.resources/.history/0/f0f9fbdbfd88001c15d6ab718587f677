@@ -1,0 +1,9 @@
+package javaPackage;
+
+public class AssignmentOperstor {
+	public static void main(String[] args) {
+		
+		
+	}
+
+}

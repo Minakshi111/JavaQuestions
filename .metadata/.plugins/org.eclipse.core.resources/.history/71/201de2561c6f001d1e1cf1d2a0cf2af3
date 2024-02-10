@@ -1,0 +1,25 @@
+package Recursion;
+
+public class factorial {
+	public static void main(String [] str)
+	{
+		int n=4;
+		
+		int res= fact(n);
+	}
+
+	private static int fact(int n) {
+		// Base condition
+		int result;
+		
+		if(n==1)
+		{
+			return result;
+		}
+		
+		result= result*fact(n-1);
+		
+		
+	}
+
+}

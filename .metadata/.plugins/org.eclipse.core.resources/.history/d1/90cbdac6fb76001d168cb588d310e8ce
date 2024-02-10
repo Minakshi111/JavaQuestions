@@ -1,0 +1,38 @@
+package Recursion;
+
+public class sum_exist_inArray {
+static int sum;
+	public static void main(String[] str)
+	{
+		
+		int arr[]= {2,1,6,8,4};
+		
+		 sum= 5;
+		 
+		 boolean f= findsum(arr, 0, 0, false);
+	}
+	private static boolean findsum(int[] arr, int index, int count_sum, boolean flag) {
+		// TODO Auto-generated method stub
+		
+		
+		if(index >= arr.length)
+			return false;
+		
+		if(count_sum >sum)
+		{
+			return false;
+		}
+		if(count_sum==sum)
+			return true;
+		
+		for ( int j=index; j>arr.length;j++)
+		{
+			 count_sum= count_sum+arr[j];
+			flag=  findsum(arr, index+1, count_sum);			
+		}
+		return flag;
+		
+
+	}
+	
+}

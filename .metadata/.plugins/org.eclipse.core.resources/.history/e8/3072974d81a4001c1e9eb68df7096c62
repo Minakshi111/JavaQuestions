@@ -1,0 +1,13 @@
+package javaPackage;
+
+public class Static2 {
+	
+	int roll;
+	String name;
+	String college;
+
+	public static void main(String[] args) {
+		
+		
+	}
+}

@@ -1,0 +1,61 @@
+package SeleniumPractise;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RadioButton {
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+    System.setProperty("webdriver.chrome.driver", "C:\\JavaT\\Software\\chromedriver_win32\\chromedriver.exe");		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+
+		driver.get("https://www.facebook.com/");	
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@data-testid='open-registration-form-button']")).click();
+		Thread.sleep(2000);
+		
+		// click radio buttons for Gender 1st Approach: all one by one:
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@type='radio'][@value='1']")).click();  // click on female radio button
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@type='radio'][@value='2']")).click();  // click on Male radio button
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@type='radio'][@value='-1']")).click();  // click on Custom radio button
+		
+		
+		// Take all radio in list and travserse . Deal with more than one webelement. 
+		
+		List<WebElement> radios= driver.findElements(By.xpath("//input[@type='radio']"));  // import java.util
+		System.out.println("Total Numner of radioButtons: "+radios.size());
+		System.out.println(radios.get(1).isEnabled());
+		
+		System.out.println(radios.get(0).isDisplayed());
+		System.out.println(radios.get(2).isSelected());
+		
+		Thread.sleep(2000);
+		radios.get(1).click();	
+		
+		// 3rd way of accessing radio buttons:
+		
+		List<WebElement> radios1= driver.findElements(By.xpath("//input[@type='radio']"));
+		String expectedRes= "";
+		
+		
+		
+		
+		
+		driver.close();
+	}
+
+}

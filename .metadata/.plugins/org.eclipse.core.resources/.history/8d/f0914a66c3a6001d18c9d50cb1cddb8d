@@ -1,0 +1,93 @@
+package src.main.Base;
+
+import org.apache.log4j.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
+
+@Listeners(src.main.Base.Listeners.class)
+public class Base {
+
+    public static String logFolderPath;
+    private static Calendar gregorianCalendar= new GregorianCalendar();
+    public static String currentTimeStamp;
+    public static String projectPath= System.getProperty("user.dir");
+    public static String videoFolderInDevice;
+    public static String currentClassName;
+    public static String currentClassLogFolderPath;
+    public static WebDriver driver;
+    public static WebDriverWait wait;
+    public static Logger log;
+
+    @BeforeSuite
+    public void startUp()
+    {
+        System.out.println("Start Up called");
+        int year= gregorianCalendar.get(Calendar.YEAR);
+        int month= gregorianCalendar.get(Calendar.MONTH);
+        int date= gregorianCalendar.get(Calendar.DATE);
+        int day= gregorianCalendar.get(Calendar.HOUR_OF_DAY);
+        int min= gregorianCalendar.get(Calendar.MINUTE);
+        int sec= gregorianCalendar.get(Calendar.SECOND);
+
+        //Set logPath folder location
+        currentTimeStamp= String.format("%04d-%02d-%02d_%02d-%02d-%02d", year, month+1, date, day,min, sec);
+        System.out.println("Current time stamp is: "+currentTimeStamp);
+        logFolderPath= projectPath+ "/Output/"+currentTimeStamp;
+        videoFolderInDevice= "Automation_Fail_Videos";
+        currentClassName= this.getClass().getSimpleName();
+        currentClassLogFolderPath= logFolderPath + "/" + currentClassName;
+
+        //configure Log4J
+        configureLog4J(logFolderPath+"/");
+
+        // set chrome driver
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\MinakshiKundu\\Downloads\\chromedriver_win32\\chromedriver.exe");
+       ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        ChromeOptions opt= new ChromeOptions();
+        driver=new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+         wait=new WebDriverWait(driver, 30);
+    }
+
+    private static void configureLog4J(String logFolderPath)
+    {
+        String conversionPattern= "%-7p %d | %C >> %M >> L:%L - %m%n";
+        PatternLayout layout= new PatternLayout();
+        layout.setConversionPattern(conversionPattern);
+
+        //create console appender
+        ConsoleAppender consoleAppender= new ConsoleAppender();
+        consoleAppender.setLayout(layout);
+        consoleAppender.activateOptions();
+
+        // create file appender
+        FileAppender fileAppender= new FileAppender();
+        fileAppender.setFile(logFolderPath + "log4JLogs.txt");
+        fileAppender.setLayout(layout);
+        fileAppender.activateOptions();
+
+        //configure the root logger
+        log= org.apache.log4j.Logger.getRootLogger();
+        log.setLevel(Level.ALL);
+        log.addAppender(consoleAppender);
+        log.addAppender(fileAppender);
+        log.info("Log 4J configured");
+    }
+@AfterSuite
+    public void tearUp()
+{
+    log.info("Calling tearup() Method");
+    driver.quit();
+}
+
+}

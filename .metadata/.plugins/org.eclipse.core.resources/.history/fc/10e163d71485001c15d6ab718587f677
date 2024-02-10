@@ -1,0 +1,13 @@
+package javaPackage;
+
+public class Variable4 {	
+	public static void main(String[] args) {
+		int a[]= {1,2,3,4,5,6,100};  // integer araay , total value = 7, size of array= 7
+		
+		String b[]= {"Ram, SHyam, Mina"}; //String array
+		
+		System.out.println(b[0]);
+		
+		
+	}
+}

@@ -1,0 +1,44 @@
+package Fluent_Interface;
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import Fluent_Interface.Base;
+
+public class Pages extends Base {
+	
+	   @FindBy(xpath="//input[@placeholder='Search Amazon.in']")
+	   public WebElement searchbox;
+	   
+	   @FindBy(xpath="//input[@placeholder='Search Amazon.in']")
+	   public WebElement searchbox;
+	   
+	
+	
+	  public Pages(WebDriver driver) {
+	        Base.driver = driver;     
+	        PageFactory.initElements(driver, this);
+	    }
+	  
+	  public Pages open_url()
+		{
+		  driver.get("https://www.amazon.in/?&ext_vrnc=hi&tag=googhydrabk1-21&ref=pd_sl_7hmh5l8jr5_e&adgrpid=61764313147&hvpone=&hvptwo=&hvadid=610644605475&hvpos=&hvnetw=g&hvrand=3013887374949185241&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007768&hvtargid=kwd-327061083&hydadcr=14455_2316418");
+		return this;		
+		}
+	  
+	  public Pages type_ele()
+		{
+		  searchbox.sendKeys("Hello Minakshi");
+			return this;		
+		}
+		
+		public Pages click_ele()
+		{
+			searchbox.click();
+			return this;		
+		}
+}

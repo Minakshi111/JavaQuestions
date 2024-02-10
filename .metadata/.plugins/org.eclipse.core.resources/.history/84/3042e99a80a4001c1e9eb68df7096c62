@@ -1,0 +1,18 @@
+package javaPackage;
+
+public class Static1 {
+
+	
+	int x= 500; // Global var
+	String s= "Selenium";
+	static int y= 100;
+	
+	
+	
+	public static void main(String[] args) {
+		
+		
+		
+		
+	}
+}

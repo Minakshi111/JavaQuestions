@@ -1,0 +1,22 @@
+!SESSION 2024-02-10 16:19:40.264 -----------------------------------------------
+eclipse.buildId=4.27.0.20230309-1200
+java.version=20.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+This is a continuation of log file C:\Users\Minakshi\eclipse-workspace\.metadata\.bak_0.log
+Created Time: 2024-02-10 16:21:01.267
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-02-10 16:21:01.267
+!MESSAGE Failed to find a compatible VM for environment id 'J2SE-1.5', falling back to workspace default
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-02-10 16:21:02.053
+!MESSAGE Failed to find a compatible VM for environment id 'J2SE-1.5', falling back to workspace default
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-02-10 16:21:02.387
+!MESSAGE Failed to find a compatible VM for environment id 'J2SE-1.5', falling back to workspace default
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-02-10 16:21:02.710
+!MESSAGE Failed to find a compatible VM for environment id 'J2SE-1.5', falling back to workspace default

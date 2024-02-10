@@ -1,0 +1,99 @@
+package SeleniumPractise;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MouseSimulation_Drag {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\JavaT\\Software\\chromedriver_win32_102\\chromedriver.exe");		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	//	driver.get("https://www.globalsqa.com/demo-site/draganddrop/");
+		 driver.get("https://dev-workflows-dashboard.leena.ai/bots/5c25fe9530521e0027a14779/workflows/apps/62bade6e04a4a709f980c17a");
+	
+	   // Switching frame let say we have 10 frames
+		
+	//	List<WebElement> allFrames= driver.findElements(By.xpath("//iframe[@data-src='../../demoSite/practice/droppable/photo-manager.html']"));
+	//	System.out.println("Total frames: "+allFrames.size());
+		
+		/*for( int i=0; i<allFrames.size();i++)
+		{
+			driver.switchTo().frame(i);
+			Thread.sleep(2000);
+			if(driver.findElement(By.xpath("//*[@id='gallery']/li[1]")).isDisplayed())
+			{
+				Thread.sleep(2000);
+				Actions act= new Actions(driver);
+				act.dragAndDrop(driver.findElement(By.xpath("//*[@id=\"gallery\"]/li[1]")), driver.findElement(By.xpath("//*[@id='trash']"))).build().perform();
+				System.out.println("Element found in : "+i+1 +" frame");
+				
+			}
+			
+		}
+		
+		*/
+		
+		
+		//Launch the application		
+       
+        
+      
+
+        //Locating element by link text and store in variable "Element"    
+        
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("shubham@chatteron.io");
+        
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        
+        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("1234");
+        
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+     
+        
+        driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[1]/div/a")).click();
+        Thread.sleep(2000);
+        
+        driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div")).click();
+       
+        
+        driver.findElement(By.xpath("//*[@id=\"simple-popover\"]/div[3]/div/div[3]/span")).click();
+        Thread.sleep(2000);
+        
+        WebElement Element= driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div/div[3]/div/div[2]/table/tbody/tr[42]/td[3]/div/span"));
+        Thread.sleep(2000);
+        
+
+        // Scrolling down the page till the element is found		
+      //  js.executeScript("arguments[0].scrollIntoView();", Element);
+		for ( int i=0; i<10; i++)
+		{
+			
+			if(Element.isDisplayed())
+			{
+				Element.click();
+				Thread.sleep(2000);
+				break;
+			}
+			  js.executeScript("window.scrollBy(0,450)", "");	
+			  Thread.sleep(2000);
+		}
+      
+        
+	}
+	
+	
+}

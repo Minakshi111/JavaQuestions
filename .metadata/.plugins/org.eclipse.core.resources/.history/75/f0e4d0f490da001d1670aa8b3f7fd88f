@@ -1,0 +1,15 @@
+package Fluent_Interface;
+
+import org.testng.annotations.BeforeMethod;
+import Fluent_Interface.Base;
+
+
+public class Scripts extends Base {
+
+	Pages bt;
+	
+	  @BeforeMethod
+	   public void setup(){
+	         bt= new Pages(driver);	        
+	    }
+}

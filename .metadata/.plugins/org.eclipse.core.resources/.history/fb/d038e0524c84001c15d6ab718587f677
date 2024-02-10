@@ -1,0 +1,15 @@
+package javaPackage;
+
+public class Variable2 {
+	
+	public static void main(String[] args) {
+		
+		String s= "Hello";
+		
+		//calculate the length of string
+		int len= s.length();
+		
+		
+	}
+
+}

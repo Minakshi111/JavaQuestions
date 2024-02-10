@@ -1,0 +1,22 @@
+import java.util.concurrent.TimeUnit;
+
+public class Assignment_test_001 {
+	
+	public static void main(String[] str)
+	{
+		
+		 // set chrome driver
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\MinakshiKundu\\Downloads\\chromedriver_win32\\chromedriver.exe");
+       ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        ChromeOptions opt= new ChromeOptions();
+        driver=new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+         wait=new WebDriverWait(driver, 30);
+		
+		
+	}
+	
+
+}

@@ -1,0 +1,17 @@
+package AppQuestions;
+
+import java.util.HashMap;
+
+public class GetMaxOfHashMap {
+
+	public static void main(String[] args) {
+		
+		HashMap<Integer, Integer> hmap= new HashMap<Integer, Integer>();
+		
+		
+		
+		
+		
+		
+	}
+}

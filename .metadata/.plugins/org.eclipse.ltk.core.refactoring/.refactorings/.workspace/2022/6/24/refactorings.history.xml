@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Online_Java_Training_10_Jan_2022&apos; to &apos;Selenium_Demo&apos;" description="Rename resource &apos;Online_Java_Training_10_Jan_2022&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Online_Java_Training_10_Jan_2022" name="Selenium_Demo" stamp="1654683556153" updateReferences="true"/>
+</session>

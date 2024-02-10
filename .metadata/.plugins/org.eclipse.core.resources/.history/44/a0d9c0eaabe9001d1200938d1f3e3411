@@ -1,0 +1,22 @@
+
+public class FabonacciSeries {
+	
+	public static void main( String[] str)
+	{
+		
+		try
+		{
+			System.out.println("try block");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Ctach block");
+		}
+		finally {
+			System.out.println("This is finally block");
+		}
+		
+	}
+	
+
+}

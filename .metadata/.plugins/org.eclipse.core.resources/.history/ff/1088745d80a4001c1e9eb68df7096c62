@@ -1,0 +1,16 @@
+package javaPackage;
+
+public class Static1 {
+
+	
+	int x= 500; // Global var
+	String s= "";
+	
+	
+	public static void main(String[] args) {
+		
+		
+		
+		
+	}
+}

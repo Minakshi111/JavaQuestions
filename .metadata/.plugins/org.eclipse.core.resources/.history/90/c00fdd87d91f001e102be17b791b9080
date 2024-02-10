@@ -1,0 +1,18 @@
+package automation;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import io.appium.java_client.windows.WindowsDriver;
+
+public class Test_Notebook_1 {
+	
+	public static WindowsDriver driver= null;
+	
+	DesiredCapabilities cap= new DesiredCapabilities();
+	cap.setCapability("app","C:\\Windows\\System32\\notepad.exe");
+	
+	
+	
+	
+
+}

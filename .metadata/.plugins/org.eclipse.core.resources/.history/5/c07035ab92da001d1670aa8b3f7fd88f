@@ -1,0 +1,19 @@
+package Fluent_Interface;
+
+import org.openqa.selenium.WebElement;
+
+public class Control {
+	
+	public Control type_ele(WebElement ele)
+	{
+		ele.sendKeys("Hello Minakshi");
+		return this;		
+	}
+	
+	public Control click_ele(WebElement ele)
+	{
+		ele.click();
+		return this;		
+	}
+
+}

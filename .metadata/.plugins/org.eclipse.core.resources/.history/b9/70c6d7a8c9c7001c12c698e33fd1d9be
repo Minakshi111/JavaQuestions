@@ -1,0 +1,62 @@
+package SeleniumPractise;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+
+public class InterviewFlipkart {
+	
+	
+	@BeforeClass
+	public void setUp()
+	{
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\\\JavaT\\\\Software\\\\chromedriver_win32\\\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		
+		driver.get("https://www.flipkart.com/");
+		
+		driver.findElement(By.xpath("//*[@alt='Mobiles']")).click();
+		
+		driver.findElement(By.xpath("//img[@src='https://rukminim2.flixcart.com/flap/240/240/image/0f46b1ccbe7d0620.jpg?q=90']")).click();
+		
+		
+		List<WebElement> list1= driver.findElements(By.xpath("//*[@class='_1fQZEK']"));
+		
+		for ( int i=0; i<list1.size(); i++)
+		{
+			
+			String name= driver.findElement(By.xpath(list1.get(i)+"//div[@class='_4rR01T']")).getText();
+			
+			
+			
+			if(name.equals("realme 8 (Cyber Silver, 128 GB)"))
+			{
+			WebElement offer= driver.findElement(By.xpath(list1.get(i)+"//div[@class='_3Ay6Sb']"))	
+				
+				//*[@class='_1fQZEK']//div[@class='_4rR01T']
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+
+}

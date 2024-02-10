@@ -1,0 +1,44 @@
+package SeleniumPractise;
+
+import java.util.Set;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class WindowSwitch {
+	
+	public static void main(String[] str) throws InterruptedException
+
+	{
+
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\JavaT\\Software\\chromedriver_win32_102\\chromedriver.exe");		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://staging-unified.leena.ai/bots/5e328f8bb8a9670012a36f6b/");
+		driver.manage().window().maximize();
+		
+		String parentWindowHandle= driver.getWindowHandle();
+				System.out.println("Parent: "+parentWindowHandle);
+
+	
+	//	 System.setProperty("webdriver.gecko.drive", "C:\\Katalon Workspace\\Workflows\\geckodriver.exe");
+		  driver= new ChromeDriver();
+		driver.get("https://www.google.com/");
+		driver.manage().window().maximize();
+
+		Set<String> handles= driver.getWindowHandles();
+
+				for( String handle: handles)
+				{
+					System.out.println(handle);
+					 if(handle.equals(parentWindowHandle))
+					{
+							System.out.println("Window is switched: "+handle);
+						driver.switchTo().window(handle);
+						Thread.sleep(4000);
+						
+					}
+				}	
+	}
+}

@@ -1,0 +1,92 @@
+package src.main.Pages;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import src.main.Base.Base;
+import src.main.Constants;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
+
+public class Common extends Base {
+    Constants constants;
+    Actions action;
+
+    //======================= Define all Elements ========================
+    @FindBy(xpath = "//*[@id=\"u_0_b\"]")
+    private WebElement logInButton;
+
+    public Common(WebDriver driver) {
+        this.driver = driver;
+        constants = new Constants();
+        action = new Actions(driver);
+        PageFactory.initElements(driver, this);
+    }
+
+    // ====================== Write all Methods ==============================
+    /*
+    Generate Random Text for entering review
+     */
+    public String generateRandomText(int length) {
+        String string = "";
+        Random random = new Random();
+        StringBuilder stringBuilder = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            stringBuilder.append(constants.alphabet.charAt(random.nextInt(constants.alphabet.length())));
+        }
+        string = stringBuilder.toString();
+        return string;
+    }
+
+    /*
+    Take Screenshot and save in logPath folder
+     */
+    public boolean takeScreenshot(String filePath, String fileName) {
+        log.info("Screenshot filePath: " + filePath + " fileName: " + fileName);
+        try {
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenshot, new File(filePath + "/" + fileName));
+            return true;
+
+        } catch (IOException e) {
+            log.debug("Failed to take screenshot");
+            return false;
+        }
+    }
+
+    /*
+    Check if element is displaying or not
+     */
+    public boolean isElementOnDisplay(WebElement element) {
+        boolean flag=false;
+        try {
+            if (element.isDisplayed())
+                flag = true;
+        } catch (Exception e) {
+            log.info("Element is not Displaying");
+        }
+        return flag;
+    }
+
+    /*
+    Check if alert is present or not
+     */
+    public boolean isAlertPresent()
+    {
+        try
+        {
+            driver.switchTo().alert();
+            return true;
+        }   // try
+        catch (Exception Ex)
+        {
+            return false;
+        }
+    }}

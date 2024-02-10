@@ -1,0 +1,10 @@
+package SearchingAlgo;
+
+public class total_occurences {
+	public static void main(String [] str)
+	{
+		
+		
+	}
+
+}

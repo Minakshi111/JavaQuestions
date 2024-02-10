@@ -1,0 +1,49 @@
+package SearchingAlgo;
+
+import java.util.Scanner;
+
+public class find_pivotElement_RotatedArray {
+	public static void main(String[] str)
+	{
+		
+		// Input an array > Rotate it by how many digits > Find the pivot element of this array > Find minimum element
+		
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		int arr[]= new int[n];
+		int rotated_arr[]= new int[n]; 
+		
+		for ( int i=0; i<n;i++)
+		{
+			arr[i]= sc.nextInt();
+		}
+		
+		int rotate_by= sc.nextInt();
+		
+		// rotate the array
+		
+		int i=0;
+		int index=0;
+		
+		while(index<=(n+rotate_by))
+		{
+			index= i+(n-rotate_by);
+			if(index>=n)
+			{
+				rotated_arr[i]= arr[index-n];
+			}
+			else
+			{
+				rotated_arr[i]= arr[index];
+				
+			}
+			i=i+1;
+		}	
+		
+		// print the rotated array
+		for ( int j=0; j<n;j++)
+		{
+			System.out.println(rotated_arr[j]);
+		}
+	}
+}

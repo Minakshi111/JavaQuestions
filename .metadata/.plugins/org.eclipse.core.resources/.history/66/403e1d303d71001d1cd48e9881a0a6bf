@@ -1,0 +1,13 @@
+package Recursion;
+
+public class binarySearch {
+	public static void main(String[] str)
+	{
+		int arr[]= {2,4,6,8,9};
+		
+		
+		
+	}
+	
+
+}

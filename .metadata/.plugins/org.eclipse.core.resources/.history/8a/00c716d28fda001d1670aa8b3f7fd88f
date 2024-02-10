@@ -1,0 +1,15 @@
+package Fluent_Interface;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+
+import Fluent_Interface.Base;
+
+public class Pages {
+
+	
+	  public Pages(WebDriver driver) {
+	        Base.driver = driver;     
+	        PageFactory.initElements(driver, this);
+	    }
+}

@@ -1,0 +1,14 @@
+package javaPackage;
+
+public class FirstJavaProgram {
+	
+	//shorcut to write main method > type ma and press ctrl+space
+	// shortcut for system.out > syso and press ctrl +space
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub  // Printing string
+		System.out.println("Hello");
+		System.out.println("Hello Java");
+	}
+
+}

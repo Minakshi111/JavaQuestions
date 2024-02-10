@@ -1,0 +1,13 @@
+package Fluent_Interface;
+
+import org.testng.annotations.BeforeSuite;
+
+public class Base {
+
+	 @BeforeSuite
+	    public void startUp()
+	    {
+		 
+		 
+	    }
+}

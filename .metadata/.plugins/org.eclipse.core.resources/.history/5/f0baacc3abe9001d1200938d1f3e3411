@@ -1,0 +1,18 @@
+
+public class FabonacciSeries {
+	
+	public static void main( String[] str)
+	{
+		
+		try
+		{
+			System.out.println("try block");
+		}
+		finally {
+			System.out.println("This is finally block");
+		}
+		
+	}
+	
+
+}

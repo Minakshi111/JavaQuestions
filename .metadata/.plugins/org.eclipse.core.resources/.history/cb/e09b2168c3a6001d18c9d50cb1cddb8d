@@ -1,0 +1,167 @@
+package src.main.Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import src.main.Base.Base;
+import src.main.Constants;
+
+import java.util.List;
+
+public class walletHub extends Base {
+    Constants constants;
+    Actions action;
+    Common common;
+    Thread thread= new Thread();
+    String post;
+
+    // ============================== Define all Webelemnts here  =========================
+
+    @FindBy(xpath = "//a[@href= \"/profile/test-insurance-company-13732055i#reviews\"]")
+    private WebElement reviews;
+
+    @FindBy(css = "review-star.rvs-svg:not(.rvs-plain)>div.rating-box-wrapper>svg.rvs-star-svg")
+    private List<WebElement> stars;
+
+    @FindBy(xpath = "//h4[text()= 'Test Insurance Company']")
+    private WebElement insuranecPage;
+
+    @FindBy(xpath = "//span[@class=\"dropdown-placeholder\" and text()= \"Select...\"]")
+    private WebElement dropDown;
+
+    @FindBy(xpath = "//li[@class=\"dropdown-item\" and text()= \"Health Insurance\"]")
+    private WebElement healthInsurance;
+
+    @FindBy(css = "textarea.textarea:not(.qna-qf-txt)")
+    private WebElement writeReview;
+
+    @FindBy(xpath = "//*[text()=\"Submit\"]")
+    private WebElement submit;
+
+    @FindBy(css = "div.btn.rvc-share-btn")
+    private WebElement shareButton;
+
+    @FindBy(css= "div.btn.rvc-continue-btn")
+    private WebElement continueButton;
+
+    @FindBy(xpath = "//span[text()= \" Your Review\"]")
+    private WebElement mainFeedPage;
+
+    @FindBy(xpath = "//*[text()=\"I RECOMMEND\"]")
+    private WebElement reviewFeed1;
+
+    @FindBy(xpath = "//a[text()= \"Test Insurance Company\"]")
+    private WebElement reviewFeed2;
+
+    @FindBy(css = "h1.profile-name")
+    private WebElement profilePage;
+
+
+    //============================  Write all methods here ===========================
+
+    public walletHub(WebDriver driver)
+    {
+        this.driver= driver;
+        constants= new Constants();
+         action= new Actions(driver);
+         common= new Common(driver);
+        PageFactory.initElements(driver, this);
+    }
+
+    public void openWalletHub()
+    {
+    driver.get(constants.walletHubURL);
+    wait.until(ExpectedConditions.visibilityOf(reviews));
+    log.info("WalletHub Page opened");
+    }
+
+    /*
+    Method to Hover all stars one by one
+     */
+    public void hoverStars() throws InterruptedException {
+        reviews.click();
+        wait.until(ExpectedConditions.visibilityOf(stars.get(1)));
+        for(int i=0; i<stars.size(); i++)
+        {
+            action.moveToElement(stars.get(i)).perform();
+            Thread.sleep(1000);
+        }
+    }
+
+    /*
+    Method to click 4 rating
+     */
+    public void clickStar() throws InterruptedException {
+        stars.get(3).click();
+        log.info("Select rating 4");
+        wait.until(ExpectedConditions.visibilityOf(insuranecPage));
+    }
+
+    /*
+    Method to select Health Insurance category from dropdown
+     */
+    public void selectHealthInsurance()
+    {
+        dropDown.click();
+        healthInsurance.click();
+    }
+
+    /*
+    Method to write review with random text of 200 characters and submit
+     */
+    public void submitReview() throws InterruptedException {
+        writeReview.click();
+        post=common.generateRandomText(200);
+        writeReview.sendKeys(post);
+           Thread.sleep(3000);
+           submit.click();
+           wait.until(ExpectedConditions.visibilityOf(continueButton));
+    }
+
+    /*
+    Method to click continue on Confimation Screen
+     */
+    public void continueOnConfirmationScreen()
+    {
+        continueButton.click();
+        wait.until(ExpectedConditions.visibilityOf(mainFeedPage));
+    }
+
+    /*
+    Method to verify post in new feed on WalletHubMain Page
+     */
+    public boolean verifyReviewFeed()
+    {
+        boolean textFound ;
+        try {
+            driver.findElement(By.xpath("//*[contains(text(), post)]"));  // check your post text on feed
+            textFound = true;
+            log.info("Review submiited successfully");
+        } catch (Exception e) {
+            textFound = false;
+            log.info("Post is not found on new feeds");
+        }
+       return textFound;
+    }
+
+    /*
+    Method to check posted review on Profile Page
+     */
+    public boolean verifyReviewOnMyProfile()
+    {
+        driver.get(constants.myProfilePage);  // Go to Profile Page
+        wait.until(ExpectedConditions.visibilityOf(profilePage));
+        boolean flag= false;
+        if(common.isElementOnDisplay(reviewFeed1) && common.isElementOnDisplay(reviewFeed2)) {
+            flag = true;
+            log.info("Posted review is showing on profile page"); }
+         else
+            log.info("Posted review is not showing on profile page");
+        return flag;
+    }
+}

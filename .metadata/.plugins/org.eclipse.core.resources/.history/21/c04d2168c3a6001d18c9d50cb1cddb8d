@@ -1,0 +1,97 @@
+package src.main.Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import src.main.Base.Base;
+import src.main.Constants;
+
+public class facebookMainPage extends Base {
+    Constants constants;
+    Actions action;
+    Common common;
+    Thread thread= new Thread();
+    String fbPost="Hello World";
+
+    //============================== Describe Elements =============================
+
+    @FindBy(xpath="//*[@id= 'email']")
+    private WebElement email;
+
+    @FindBy (xpath= "//*[@id= 'pass']")
+    private WebElement password;
+
+    @FindBy(xpath = "//*[@id=\"u_0_b\"]")
+    private WebElement logInButton;
+
+    @FindBy(xpath = "//*[contains(text(),\"What's on your mind\")]")
+    private WebElement postField;
+
+   @FindBy(xpath = "//*[text()=\"What's on your mind, Meenu?\" and @class= \"_1p1v\"]//parent::div//following-sibling::div//div[@class= \"_1mf _1mj\"]")
+    private WebElement writePost;
+
+    @FindBy(xpath = "//*[text()= 'Post']")
+    private WebElement postButton;
+
+    @FindBy(xpath = "//*[text()=\"Create a Story\"]")
+    private WebElement homePage;
+
+    public facebookMainPage(WebDriver driver)
+    {
+        this.driver= driver;
+        constants= new Constants();
+         action= new Actions(driver);
+         common= new Common(driver);
+        PageFactory.initElements(driver, this);
+    }
+
+    //================================ Write all methods below ==========================
+    public void openFacebook()
+    {
+        driver.get(constants.facebookURL);
+    }
+
+    public void login() throws InterruptedException {
+        email.sendKeys(constants.userId);
+        password.sendKeys(constants.password);
+        logInButton.click();
+        wait.until(ExpectedConditions.visibilityOf(homePage));
+        if(common.isAlertPresent())
+            driver.switchTo().alert().dismiss();
+      //  action.sendKeys(Keys.ESCAPE).build().perform();
+    }
+
+    /*
+       Write comment and click on Post
+        */
+    public void postMessage() throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOf(postField));
+        postField.click();
+      wait.until(ExpectedConditions.elementToBeClickable(writePost));
+        writePost.click();
+        writePost.sendKeys(fbPost);
+        postButton.click();
+    }
+
+    /*
+    Method to validate that posted comment is visible or not.
+     */
+    public boolean isCommentPosted()
+    {
+        boolean textFound ;
+        try {
+            driver.findElement(By.xpath("//*[contains(text(),fbPost)]"));
+            textFound = true;
+            log.info("Hello World is posted successfully on facebook");
+        } catch (Exception e) {
+            textFound = false;
+            log.info("Hello World is not posted yet");
+        }
+        return textFound;
+    }
+}

@@ -1,0 +1,33 @@
+
+import org.json.simple.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.*;
+import io.restassured.response.Response;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matcher.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class Test_Post_01 {
+
+	
+	@Test
+	public void test_post_01()
+	{
+	// use some json library to pass the payload in Post request.
+	// or you can create Map and convert into Json
+	
+	Map <String, Object> map= new HashMap<String, Object>();
+	map.put("Name","Minakshi");
+	map.put("Name","Arun");
+	
+	JSONObject request= new JSONObject(map);
+	System.out.println(request);
+	
+	
+	}
+	
+}

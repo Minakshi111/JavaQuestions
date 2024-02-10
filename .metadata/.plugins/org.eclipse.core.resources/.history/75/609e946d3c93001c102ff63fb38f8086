@@ -1,0 +1,53 @@
+package SeleniumPractise;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OpenURL {
+
+	public static void main(String[] args) throws Exception {
+		
+		
+		// System is predefined class, setproperty is method having 2 parameters. We are trying to set the property of which browser [chrome]. 
+		// This is the property of chrome browser 'webdriver.chrome.driver'
+		
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\JavaT\\Software\\chromedriver_win32\\chromedriver.exe");		
+		
+		// launching chrome driver instance
+		WebDriver driver = new ChromeDriver();
+		
+		// maximize the window
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+
+		// Open URL
+		driver.get("https://www.facebook.com/");	// get is method of webdriver interface		
+		
+		// Click Forget Password button
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("abc@gmail.com");
+		
+		Thread.sleep(3000);
+	//	driver.findElement(By.xpath("//a[normalize-space()='Forgotten password?']")).click();		
+		
+		
+		
+		
+		
+	
+		
+		
+		// Quit all browser instances
+				driver.quit();
+		
+		
+		
+		
+		
+		
+		
+	}
+}

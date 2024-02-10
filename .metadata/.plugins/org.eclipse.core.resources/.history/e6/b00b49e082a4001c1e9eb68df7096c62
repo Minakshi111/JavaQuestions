@@ -1,0 +1,16 @@
+package javaPackage;
+
+public class Static4 {
+
+	public static void main(String[] args) {
+		
+	
+	Static3 s3= new Static3(100, "Minakshi");
+	Static3 s4= new Static3(200, "abs");
+	
+	Static3.college= "College_Name";
+	
+	
+	}
+	
+}

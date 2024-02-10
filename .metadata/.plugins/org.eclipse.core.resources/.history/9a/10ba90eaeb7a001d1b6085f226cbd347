@@ -1,0 +1,51 @@
+package Recursion;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PhoneKeypad {
+	static List<String> a1= new ArrayList<String>();
+	static String mapArr[]= {"","","abc","def"};
+	
+	public static void main(String[] str)
+	{
+		String s= "23";	
+	keypad(s,"",0,0 )	;
+		
+	
+	
+	for ( int i=0; i<a1.size();i++)
+	{
+		System.out.println(a1.get(i));
+	}
+	}
+
+	private static void keypad(String s, String out, int i, int j) {
+		
+		if(i>= s.length())
+		{
+			System.out.println(out);
+			a1.add(out);
+			return;
+		}
+		
+		char text= s.charAt(i);
+		String st= String.valueOf(text);
+		int index= Integer.parseInt(st);
+		
+		char[] ch= mapArr[index].toCharArray();
+		
+		if(j==ch.length)
+		{
+			return;
+			
+		}
+
+		out=out+ String.valueOf(ch[j]);
+		keypad(s, out, i,j+1);
+		keypad(s, out, i+1,j+1);
+		
+		
+	}
+
+}

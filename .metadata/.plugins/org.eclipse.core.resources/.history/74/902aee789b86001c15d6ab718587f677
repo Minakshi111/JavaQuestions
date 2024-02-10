@@ -1,0 +1,19 @@
+package javaPackage;
+
+public class Variable9 {
+	
+	public static void main(String[] args) {
+		
+		int a; // declaring local variable
+		
+		a=10; // assigning value 
+		System.out.println(a);
+		
+		char b='a'; // defining variable 
+		System.out.println(b);
+		
+
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package javaPackage;
+
+public class Variable3 {
+
+	
+	int data = 50; // Global variable
+	static int f=5; //static variable
+	
+	
+	
+	public static void main(String[] args) {
+		
+		
+		
+	}
+}

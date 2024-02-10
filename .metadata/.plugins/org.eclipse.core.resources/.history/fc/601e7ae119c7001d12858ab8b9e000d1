@@ -1,0 +1,55 @@
+import static io.restassured.RestAssured.given;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.simple.JSONObject;
+import org.testng.annotations.Test;
+
+import io.restassured.http.ContentType;
+
+public class Parameterized_Request {
+	
+	@Test
+	public void test_post_01()
+	{
+	// use some json library to pass the payload in Post request.
+	// or you can create Map and convert into Json
+	
+	Map <String, Object> map= new HashMap<String, Object>();
+	map.put("Name","Minakshi");
+	map.put("Job","Science");
+	
+	JSONObject request= new JSONObject(map);
+	System.out.println(map);
+	System.out.println(request);
+	
+	given()
+	.header("Content-Type" , "application/json")
+	.contentType(ContentType.JSON).accept(ContentType.JSON)
+	.body(request.toJSONString())
+	.when()
+	.post("https://reqres.in/api/users")
+	.then()
+	.statusCode(201);
+	
+	}
+	
+	// To provide data from a function, we have mentioned return type Object as it can take all types of data.
+	
+	public Object[][] dataForPost()
+	{
+		
+		Object[][] data= new Object[2][3];   // 2 rows and 3 columns
+		data[0][0]= "Name";
+		data[0][1]= "Minakshi";
+		
+		data[1][0]= "Job";
+		data[1][1]= "Science";
+		
+		return data;
+			
+	}
+	
+
+}

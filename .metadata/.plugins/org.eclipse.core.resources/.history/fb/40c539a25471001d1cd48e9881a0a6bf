@@ -1,0 +1,41 @@
+package Recursion;
+
+public class binarySearch {
+	static int target;
+	public static void main(String[] str)
+	{
+		int arr[]= {2,4,6,8,9};
+		 target= 2;
+		
+		int index= search(arr, 0, (arr.length)-1 );
+		
+		 System.out.println(index);		
+	}
+
+	private static int search(int[] arr, int s, int e) {
+
+		int mid= (s+e)/2;
+		
+		if(arr[mid]==target)
+		{
+			return mid;
+		}
+		
+		if(s>=e)
+		{
+			return -1;
+		}
+		
+		if(arr[mid]> target)
+		{
+			// left 
+			search(arr, s, mid-1);
+		}
+		else
+		{
+			// right
+			search(arr, mid+1, e);
+		}
+		return mid;
+	}
+}

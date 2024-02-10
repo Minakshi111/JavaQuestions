@@ -1,0 +1,10 @@
+package SearchingAlgo;
+
+public class square_root_using_binarySearch {
+
+	public static void main(String[] str)
+	{
+		
+		
+	}
+}

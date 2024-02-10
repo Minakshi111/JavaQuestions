@@ -1,0 +1,17 @@
+package javaPackage;
+
+public class AssignmentOperstor {
+	public static void main(String[] args) {
+		
+		int a=10; 
+		a+=3; // Do not give space between + and = . Increment value by 3
+		System.out.println(a);  //13
+		a -= 3;
+		System.out.println(a); // 9
+		
+		a
+		
+		
+	}
+
+}

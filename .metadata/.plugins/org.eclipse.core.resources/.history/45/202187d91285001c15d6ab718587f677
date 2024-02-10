@@ -1,0 +1,22 @@
+package javaPackage;
+
+public class Variable3 {
+
+	
+	int data = 50; // Global variable
+	static int f=5; //static variable
+	
+	//pre-defined method
+	public static void main(String[] args) {
+		int n= 5; // local
+		
+		
+		
+	}
+	static int k=7; // Static
+	
+	// user-defined method
+	public void a() {
+		
+	}
+}

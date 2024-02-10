@@ -1,0 +1,33 @@
+package Recursion;
+
+public class subSetOfString {
+	public static void main(String[] str)
+	{
+		
+		String s= "123";
+		String res = null;
+		
+		check_subsets(s, 0, res,0);
+		
+	}
+
+	private static void check_subsets(String s, int count, String out, int j) {
+		
+		if(count==s.length())
+		{			
+			System.out.println(out);
+			return;
+		}
+		
+		// include call
+		char ele= s.charAt(j);
+		out=out+ele;
+		check_subsets(s, count+1, out, j+1);
+		
+		
+		// excluude call
+		check_subsets(s, count+1, out, j);
+		
+	}
+
+}

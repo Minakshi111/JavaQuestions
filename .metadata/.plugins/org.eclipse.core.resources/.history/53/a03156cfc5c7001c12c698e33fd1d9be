@@ -1,0 +1,21 @@
+package SeleniumPractise;
+
+import org.testng.annotations.BeforeClass;
+
+public class InterviewFlipkart {
+	
+	
+	@BeforeClass
+	public void setUp()
+	{
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\\\JavaT\\\\Software\\\\chromedriver_win32\\\\chromedriver.exe");
+		
+		
+		
+		
+	}
+	
+	
+
+}

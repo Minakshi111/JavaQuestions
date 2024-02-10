@@ -1,0 +1,50 @@
+package SeleniumPractise;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ReadExcel   {
+	public static void main(String[] args) throws Exception {
+		
+	
+	// specify the location of excel file
+	
+	File src= new File("C:\\Users\\91991\\Desktop\\Demo.xlsx");
+	
+	// Load File
+	FileInputStream fs= new FileInputStream(src);
+	
+	// Load workbook
+	XSSFWorkbook wb= new XSSFWorkbook(fs);
+	
+	// Load worksheet
+	XSSFSheet sh= wb.getSheet("Sheet1");
+	
+	// Print the loaded sheet name
+	System.out.println("Sheet Name: "+sh.getSheetName());
+	
+	// Print user name from excel sheet
+	System.out.println(sh.getRow(0).getCell(0).getStringCellValue());
+	
+	System.out.println(sh.getRow(1).getCell(0).getStringCellValue());
+	
+	System.out.println("Total rows: "+sh.getPhysicalNumberOfRows());
+	
+	System.out.println("Last row no : "+sh.getLastRowNum());
+	
+	System.out.println("First row no: "+sh.getFirstRowNum());
+	
+	System.out.println("Total cols: "+sh.getRow(1).getPhysicalNumberOfCells());
+	
+	
+	
+	
+	
+	
+	}
+}
+
+

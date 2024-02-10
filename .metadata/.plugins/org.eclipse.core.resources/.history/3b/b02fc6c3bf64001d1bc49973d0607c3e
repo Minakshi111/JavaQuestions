@@ -1,0 +1,143 @@
+package SearchingAlgo;
+
+import java.util.Scanner;
+
+public class pages_allocation_binary_search {
+
+	static int ans=Integer.MAX_VALUE;
+	public static void main(String [] str)
+	{
+		
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		int m= sc.nextInt();
+		int arr[]= new int[n];
+		int sum=0;
+		
+		for ( int i=0; i<n;i++)
+		{
+			arr[i]= sc.nextInt();
+			sum=sum+arr[i];
+		}
+		
+		int start=0;
+		int end= sum;
+		int mid= (start+end)/2;
+		
+		
+		int student=1;
+		int total=0;
+		boolean isPossible= true;
+		
+		while(start< end)
+		{		
+			System.out.println("Mid is : "+mid);
+			 student=1;
+			 total=0;
+			 isPossible= true;
+			 
+			 isPossible_solution(arr, start, end, mid, m);
+			 
+			// check if this mid is a possible solution or not
+			System.out.println("For loop started : ");
+			for ( int i=0; i<n;i++)
+			{
+				if(student<=m)
+				{
+				total= total+arr[i];
+				
+				 if(total>mid)
+				 {
+					 System.out.println("Total is: "+total);
+					 student= student+1;
+					 total= total-arr[i];
+					 if(ans>total)
+					 ans= total;
+					 total=arr[i];					 
+				 }
+				 else if( total==mid)
+				 {
+					 if(ans>total)
+						 ans= total;
+					 total=0;
+				 }
+				 else
+				 {
+					 total= total+arr[i];
+				 }
+				}
+				if(student>m)
+				{
+					isPossible=false;
+					break;
+					// return false ;
+				}
+			}
+						
+			if(isPossible)
+			{
+				System.out.println("Possible solution");
+				end=mid-1;
+			}
+			else
+			{
+				System.out.println("Not Possible solution");
+				start= mid+1;
+			}
+			
+			mid=(start+end)/2;
+		
+			
+		}
+		
+		System.out.println("Answer is: "+ans);
+		
+	}
+	
+	public static boolean isPossible_solution(int arr[], int start, int end, int mid, int student)
+	{
+		
+		int ss = 1;
+		
+		int n= arr.length;
+		int total=0;
+		
+		for ( int i=0; i<n;i++)
+		{
+			if(ss<=student)
+			{
+				total= total+arr[i];
+				
+				 if(total>mid)
+				 {
+					 System.out.println("Total is: "+total);
+					 student= student+1;
+					 total= total-arr[i];
+					 if(ans>total)
+					 ans= total;
+					 total=arr[i];					 
+				 }
+				 else if( total==mid)
+				 {
+					 if(ans>total)
+						 ans= total;
+					 total=0;
+				 }
+				 else
+				 {
+					 total= total+arr[i];
+				 }
+				
+			}
+			if(ss>student && i==(n-1))
+			{
+				return true;
+			
+			}
+			
+		}
+		
+		
+		return false;
+	}
+}

@@ -1,0 +1,47 @@
+package Recursion;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class subSetOfString {
+	
+	static List <String> a1= new ArrayList<String>();
+	
+	public static void main(String[] str)
+	{
+		
+		String s= "123";
+		
+		check_subsets(s, 0, "");
+		
+		for (int i=0; i<a1.size();i++)
+		{
+			System.out.println(a1.get(i));
+		}
+		
+	}
+
+	private static void check_subsets(String s, int count, String out) {
+		
+		if(count==s.length())
+		{			
+			a1.add(out);
+			
+			return;
+		}
+		
+		// excluude call
+				check_subsets(s, count+1, out);
+		
+		// include call
+		
+		char ele= s.charAt(count);
+		out= String.valueOf(ele);
+		check_subsets(s, count+1, out);
+		
+		
+		
+		
+	}
+
+}
